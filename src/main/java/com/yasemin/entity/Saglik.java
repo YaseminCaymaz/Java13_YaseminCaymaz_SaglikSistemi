@@ -5,7 +5,7 @@ import com.yasemin.DataBase.SaglikDB.*;
 
 public class Saglik {
     public void asilamaYap(Insan insan){
-        if(insan.getClass().getSimpleName().equalsIgnoreCase("NormalInsan")){
+        if(!insan.isAsiliMi()){
             insan.setAsiliMi(true);
             SaglikDB.arrayBoyutKontrol();
             SaglikDB.asilananInsanlar[SaglikDB.asilananInsanSayisi++]=insan;

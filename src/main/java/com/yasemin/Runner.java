@@ -13,27 +13,12 @@ public class Runner {
         Saglik saglik=new Saglik();
         SuperInsan superInsan=new SuperInsan();
         Doktor doktor=new Doktor();
-        NormalInsan insan=new NormalInsan("Yasemin","Caymaz", Cinsiyet.KADIN,28,5487,"Gaziantep",false,true,true);
-        saglik.asilamaYap(insan);
-        NormalInsan insan1=new NormalInsan("Mehmet","Demir",Cinsiyet.ERKEK,31,54876,"Karabuk",false,true,false);
-        saglik.asilamaYap(insan1);
-        NormalInsan insan2=new NormalInsan("Hasan","Can",Cinsiyet.ERKEK,15,85697,"İstanbul",false,true,true);
-        saglik.asilamaYap(insan2);
-
         secim();
 
 
 
 
-
     }
-
-
-
-
-
-
-
     public static SaglikDBManager saglik1=new SaglikDBManager();
 
     /**
@@ -43,8 +28,9 @@ public class Runner {
         System.out.println("************************");
         System.out.println("****** İSLEMLER ********");
         System.out.println("************************");
-        System.out.println("1.Aşılanan kişilerin Listesini Göster");
-        System.out.println("2.Listedeki Kişi Bilgilerini Göster");
+        System.out.println("1.Asılanan kişinin bilgilerini gir");
+        System.out.println("2.Aşılanan kişilerin Listesini Göster");
+        System.out.println("3.Listedeki Kişi Bilgilerini Göster");
         System.out.println("0.ÇIKIS");
         System.out.println("Lütfen bir seçim yapınız..:");
     }
@@ -58,13 +44,55 @@ public class Runner {
             ekran();
             secim=new Scanner(System.in).nextInt();
             switch (secim){
-                case 1:saglik1.raporEkrani();break;
-                case 2:saglik1.raporEkrani2();break;
+                case 1:kaydet();break;
+                case 2:saglik1.raporEkrani();break;
+                case 3:saglik1.raporEkrani2();break;
                 case 0:System.out.println("Cıkıs yapılıyor.");break;
                 default: System.out.println("Hatalı seçim yaptınız.Lütfen tekrar deneyiniz.");break;
             }
         }while (secim!=0);
 
+    }
+
+    /**
+     * Konsol ekranından aşılanacak kişinin bilgilerini alır.
+     */
+    public static void kaydet(){
+        Scanner sc=new Scanner(System.in);
+        NormalInsan insan=new NormalInsan();
+        Saglik saglik=new Saglik();
+        System.out.println("Ad...:");
+        insan.setAd(sc.nextLine());
+        System.out.println("Soyad...:");
+        insan.setSoyad(sc.nextLine());
+        System.out.println("Cinsiyet...:(K/E)");
+        String ifade=sc.nextLine();
+        if (ifade.equalsIgnoreCase("k"))
+            insan.setCinsiyet(Cinsiyet.KADIN);
+        else insan.setCinsiyet(Cinsiyet.ERKEK);
+        System.out.println("Yaş....:");
+        insan.setYas(sc.nextInt());
+        System.out.println("Telefon...:");
+        insan.setTelefon(sc.nextInt());
+        System.out.println("Adres...:");
+        sc.nextLine();
+        insan.setAdres(sc.nextLine());
+        System.out.println("Aşılı mi?...:(E/H)");
+        ifade=sc.nextLine();
+        if(ifade.equalsIgnoreCase("h"))
+            insan.setAsiliMi(false);
+        else insan.setAsiliMi(true);
+        System.out.println("Hasta mi?...:(E/H)");
+        ifade=sc.nextLine();
+        if(ifade.equalsIgnoreCase("h"))
+            insan.setHastaMi(false);
+        else insan.setHastaMi(true);
+        System.out.println("Tasıyıcı mi?...:(E/H)");
+        ifade=sc.nextLine();
+        if(ifade.equalsIgnoreCase("h"))
+            insan.setTasiyiciMi(false);
+        else insan.setTasiyiciMi(true);
+        saglik.asilamaYap(insan);
     }
 
 }
