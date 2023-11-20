@@ -15,13 +15,13 @@ public abstract class Insan  {
     private String adres;
     private boolean asiliMi;
     private boolean hastaMi;
-    private boolean tasiyiciMi;
+    private boolean bulasiciMi;
 
     public Insan() {
         this.id= UUID.randomUUID().toString();
     }
 
-    public Insan(String ad, String soyad, Cinsiyet cinsiyet, int yas, int telefon, String adres, boolean asiliMi, boolean hastaMi, boolean tasiyiciMi) {
+    public Insan(String ad, String soyad, Cinsiyet cinsiyet, int yas, int telefon, String adres, boolean asiliMi, boolean hastaMi, boolean bulasiciMi) {
         this.id= UUID.randomUUID().toString();
         this.ad = ad;
         this.soyad = soyad;
@@ -31,7 +31,7 @@ public abstract class Insan  {
         this.adres = adres;
         this.asiliMi = asiliMi;
         this.hastaMi = hastaMi;
-        this.tasiyiciMi = tasiyiciMi;
+        this.bulasiciMi = bulasiciMi;
     }
 
     @Override
@@ -46,7 +46,7 @@ public abstract class Insan  {
                 ", adres='" + adres + '\'' +
                 ", asiliMi=" + asiliMi +
                 ", hastaMi=" + hastaMi +
-                ", tasiyiciMi=" + tasiyiciMi +
+                ", bulasiciMi=" + bulasiciMi +
                 '}';
     }
 
@@ -70,12 +70,12 @@ public abstract class Insan  {
         this.hastaMi = hastaMi;
     }
 
-    public boolean isTasiyiciMi() {
-        return tasiyiciMi;
+    public boolean getBulasiciMi() {
+        return bulasiciMi;
     }
 
-    public void setTasiyiciMi(boolean tasiyiciMi) {
-        this.tasiyiciMi = tasiyiciMi;
+    public void setBulasiciMi(boolean bulasiciMi) {
+        this.bulasiciMi = bulasiciMi;
     }
 
     public void setId(String id) {

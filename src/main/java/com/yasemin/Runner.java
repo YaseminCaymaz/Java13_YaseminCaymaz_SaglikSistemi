@@ -90,8 +90,8 @@ public class Runner {
         System.out.println("Tasıyıcı mi?...:(E/H)");
         ifade=sc.nextLine();
         if(ifade.equalsIgnoreCase("h"))
-            insan.setTasiyiciMi(false);
-        else insan.setTasiyiciMi(true);
+            insan.setBulasiciMi(false);
+        else insan.setBulasiciMi(true);
         saglik.asilamaYap(insan);
     }
 

@@ -9,7 +9,7 @@ public class Saglik {
      * @param insan
      */
     public void asilamaYap(Insan insan){
-        if(!insan.isAsiliMi()){
+        if(insan.getBulasiciMi()){
             insan.setAsiliMi(true);
             SaglikDB.arrayBoyutKontrol();
             SaglikDB.asilananInsanlar[SaglikDB.asilananInsanSayisi++]=insan;
